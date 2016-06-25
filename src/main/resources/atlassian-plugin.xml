@@ -1,0 +1,18 @@
+<atlassian-plugin key="com.pepl.plugins.jira.individual_worklog.iLog" name="Individual Worklog" plugins-version="2">
+    <plugin-info>
+        <description>This is the com.pepl.plugins.jira.individual_worklog:iLog plugin for Atlassian JIRA.</description>
+        <version>1.0</version>
+        <vendor name="pepl" url="${project.organization.url}" />
+        <param name="plugin-icon">images/clock.png</param>
+        <param name="plugin-logo">images/clock.png</param>
+
+    </plugin-info>
+
+    <web-panel name="iLog" i18n-name-key="iLog" key="iLog" location="atl.jira.view.issue.right.context" weight="1000">
+        <description key="ilog">Displays logged work per user on a particular issue (forked from com.mizan.Ilog)</description>
+        <context-provider class="com.pepl.plugins.jira.individual_worklog.ILog"/>
+        <resource name="view" type="velocity" location="ilog.vm"/>
+        <label key="Individual Worklog"/>
+    </web-panel>
+
+</atlassian-plugin>

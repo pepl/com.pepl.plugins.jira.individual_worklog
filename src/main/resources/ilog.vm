@@ -1,0 +1,23 @@
+
+#if($realMap)
+<span style="font-weight; color: grey;">
+   <table>
+
+#set ($keys =$realMap.keySet())
+#foreach($key in $keys)
+    <tr><td id="user" width="80%">$key</td>
+    #set($timeMap=$realMap.get($key))
+    #set ($times =$timeMap.keySet())
+    #foreach($hours in $times)
+        #set($minutes=$timeMap.get($hours))
+            #if($hours!=0)
+                <td id="hours" style="color:#000066;">${hours}h</td>
+            #end
+            #if($minutes!=0)
+                <td id="min" style="color:#000066;">${minutes}m</td>
+            #end
+    #end
+    </tr>
+#end
+   </table>
+#end
