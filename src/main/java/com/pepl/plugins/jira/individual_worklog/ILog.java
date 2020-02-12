@@ -46,10 +46,10 @@ public class ILog extends AbstractJiraContextProvider {
             String newkey = (String) entry.getKey();
             Long newvalue = (Long) entry.getValue();
             HashMap newTime = getTime(newvalue);
-            ApplicationUser workloguser = ComponentAccessor.getUserUtil().getUser(newkey);
+            ApplicationUser workloguser = ComponentAccessor.getUserManager().getUserByKey(newkey);
             String username = newkey;
-            if ( ComponentAccessor.getUserUtil().userExists(newkey) ) {
-                username = ComponentAccessor.getUserUtil().getUser(newkey).getDisplayName();
+            if ( !ComponentAccessor.getUserKeyService().getUsernameForKey(newkey).isEmpty() ) {
+                username = ComponentAccessor.getUserManager().getUserByKey(newkey).getDisplayName();
             }
             realMap.put(username, newTime);
         }
